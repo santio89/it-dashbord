@@ -1,49 +1,49 @@
 const usersData = {
   users: [
     {
-      username: "test",
-      location: "ss",
+      name: "testUser",
+      intern: "123",
       area: 'it',
       id: 1
     },
     {
-      username: "test",
-      location: "ss",
+      name: "testUser",
+      intern: "123",
       area: 'it',
       id: 2
     },
     {
-      username: "test",
-      location: "ss",
+      name: "testUser",
+      intern: "123",
       area: 'it',
       id: 3
     },
     {
-      username: "test",
-      location: "ss",
+      name: "testUser",
+      intern: "123",
       area: 'it',
       id: 4
     },
     {
-      username: "test",
-      location: "ss",
+      name: "testUser",
+      intern: "123",
       id: 5
     },
     {
-      username: "test",
-      location: "ss",
+      name: "testUser",
+      intern: "123",
       area: 'it',
       id: 6
     },
     {
-      username: "test",
-      location: "ss",
+      name: "testUser",
+      intern: "123",
       area: 'it',
       id: 7
     },
     {
-      username: "test",
-      location: "ss",
+      name: "testUser",
+      intern: "123",
       area: 'it',
       id: 8
     },

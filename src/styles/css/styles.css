@@ -63,7 +63,9 @@ li {
 }
 
 button,
-a {
+a,
+input,
+textarea {
   border: none;
   outline: none;
   background: none;
@@ -82,9 +84,43 @@ a {
 }
 button:hover, button:focus-visible,
 a:hover,
-a:focus-visible {
+a:focus-visible,
+input:hover,
+input:focus-visible,
+textarea:hover,
+textarea:focus-visible {
   color: var(--main-color);
   background: var(--main-color-light);
+}
+
+input,
+textarea {
+  border: none;
+  outline: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  color: var(--main-color-light);
+  background: var(--main-color);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-wrap: balance;
+  resize: none;
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--main-color-light);
+}
+input:hover::placeholder, input:focus::placeholder, input:focus-visible::placeholder,
+textarea:hover::placeholder,
+textarea:focus::placeholder,
+textarea:focus-visible::placeholder {
+  color: var(--main-color);
 }
 
 .root-theme {
@@ -208,18 +244,31 @@ a:focus-visible {
 
 .users {
   gap: 1rem;
+  align-items: start;
 }
 .users__list {
   flex: 1;
-}
-.users__list ul {
   display: flex;
-  justify-content: center;
-  align-items: stretch;
   flex-direction: column;
-  gap: 0.5rem;
+  justify-content: start;
+  align-items: center;
+  gap: 2rem;
+  min-height: 100%;
 }
-.users__list ul li {
+.users__list > button {
+  align-self: start;
+  color: var(--main-color);
+  background: var(--main-color-light);
+}
+.users__list > ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+.users__list > ul li {
   display: flex;
   justify-content: center;
   align-items: stretch;
@@ -252,25 +301,50 @@ a:focus-visible {
   opacity: 0.5;
   backdrop-filter: blur(2px);
 }
+@media (max-width: 499px) {
+  .mainModalWrapper {
+    min-height: 80%;
+  }
+}
 
 .mainModal {
   width: 100%;
   min-height: 100%;
   display: flex;
   justify-content: start;
-  align-items: stretch;
+  align-items: center;
   flex-direction: column;
+  gap: 0.5rem;
   color: var(--main-white);
 }
 .mainModal__data {
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.mainModal__data > p {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.mainModal__data__inputs {
+  flex: 1;
+  display: flex;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 0.5rem;
 }
-.mainModal__close {
-  margin-top: auto;
+.mainModal__data__inputs input,
+.mainModal__data__inputs textarea {
+  border: none;
+  outline: none;
+  min-width: 150px;
+  width: 100%;
+}
+.mainModal__send, .mainModal__close {
   align-self: end;
 }
 
