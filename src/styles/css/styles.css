@@ -344,7 +344,7 @@ textarea:focus-visible::placeholder {
   min-width: 150px;
   width: 100%;
 }
-.mainModal__send, .mainModal__close {
+.mainModal__send, .mainModal__close, .mainModal__edit {
   align-self: end;
 }
 
