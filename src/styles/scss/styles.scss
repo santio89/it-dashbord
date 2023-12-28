@@ -291,7 +291,7 @@ select {
 
     >ul {
       display: grid;
-      /* grid-template-columns: 1fr 1fr; */
+      grid-template-columns: 1fr 1fr;
       place-content: start;
       place-items: center;
       gap: .5rem;

@@ -280,7 +280,7 @@ select:focus-visible::placeholder {
 }
 .users__list > ul {
   display: grid;
-  /* grid-template-columns: 1fr 1fr; */
+  grid-template-columns: 1fr 1fr;
   place-content: start;
   place-items: center;
   gap: 0.5rem;
