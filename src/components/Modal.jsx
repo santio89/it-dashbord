@@ -10,10 +10,12 @@ export default function Modal() {
 
   const [newUserName, setNewUserName] = useState("")
   const [newUserArea, setNewUserArea] = useState("")
+  const [newUserLocation, setNewUserLocation] = useState("")
   const [newUserComment, setNewUserComment] = useState("")
   const [newUserIntern, setNewUserIntern] = useState("")
   const [newDeviceName, setNewDeviceName] = useState("")
   const [newDeviceArea, setNewDeviceArea] = useState("")
+  const [newDeviceLocation, setNewDeviceLocation] = useState("")
   const [newDeviceComment, setNewDeviceComment] = useState("")
 
   useEffect(() => {
@@ -47,9 +49,11 @@ export default function Modal() {
       modal.current.close()
       setNewUserName("")
       setNewUserArea("")
+      setNewUserLocation("")
       setNewUserComment("")
       setNewDeviceName("")
       setNewDeviceArea("")
+      setNewDeviceLocation("")
       setNewDeviceComment("")
       /* try {
         document.startViewTransition(() => {
@@ -84,9 +88,16 @@ export default function Modal() {
           {modalData?.newUser &&
             <form className='mainModal__data__inputs' onSubmit={() => dispatch(setModal({ active: false, data: {} }))}>
               <h2>ADD USER</h2>
-              <input type="text" placeholder='Username' value={newUserName} onChange={e => setNewUserName(e.target.value)} />
+              <input type="text" placeholder='User' value={newUserName} onChange={e => setNewUserName(e.target.value)} />
               <input type="text" placeholder='Area' value={newUserArea} onChange={e => setNewUserArea(e.target.value)} />
-              <input type="text" placeholder='Intern' value={newUserIntern} onChange={e => setNewUserIntern(e.target.value)} />
+              <select onChange={e => setNewUserLocation(e.target.value)}>
+                <option value="Location" disabled selected>Location</option>
+                <option value="SS">SS</option>
+                <option value="PB">PB</option>
+                <option value="1P">1P</option>
+                <option value="4P">4P</option>
+              </select>
+              <input type="number" placeholder='Intern' value={newUserIntern} onChange={e => setNewUserIntern(e.target.value)} />
               <textarea rows="2" placeholder='Comment' value={newUserComment} onChange={e => setNewUserComment(e.target.value)} />
               <button className='mainModal__send'>Send</button>
             </form>
@@ -95,8 +106,15 @@ export default function Modal() {
           {modalData?.newDevice &&
             <form className='mainModal__data__inputs' onSubmit={() => dispatch(setModal({ active: false, data: {} }))}>
               <h2>ADD DEVICE</h2>
-              <input type="text" placeholder='Username' value={newDeviceName} onChange={e => setNewDeviceName(e.target.value)} />
+              <input type="text" placeholder='Device' value={newDeviceName} onChange={e => setNewDeviceName(e.target.value)} />
               <input type="text" placeholder='Area' value={newDeviceArea} onChange={e => setNewDeviceArea(e.target.value)} />
+              <select onChange={e => setNewDeviceLocation(e.target.value)}>
+                <option value="Location" disabled selected>Location</option>
+                <option value="SS">SS</option>
+                <option value="PB">PB</option>
+                <option value="1P">1P</option>
+                <option value="4P">4P</option>
+              </select>
               <textarea rows="2" placeholder='Comment' value={newDeviceComment} onChange={e => setNewDeviceComment(e.target.value)} />
               <button className='mainModal__send'>Send</button>
             </form>

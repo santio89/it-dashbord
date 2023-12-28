@@ -11,8 +11,8 @@
   --main-black: rgb(30, 30, 30);
   --main-white: rgb(240, 240, 240);
   --main-gray: rgb(180, 180, 180);
-  --main-gray-op: rgba(180, 180, 180, .9);
-  --main-gray-op-dark: rgba(120, 120, 120, .2);
+  --main-gray-op: rgba(180, 180, 180, .8);
+  --main-gray-op-dark: rgba(120, 120, 120, .8);
   --main-color: rgb(228, 76, 76);
   --main-color-dark: var(--main-black);
   --main-color-light: var(--main-white);
@@ -94,7 +94,8 @@ textarea:focus-visible {
 }
 
 input,
-textarea {
+textarea,
+select {
   border: none;
   outline: none;
   background: none;
@@ -113,13 +114,17 @@ textarea {
   resize: none;
 }
 input::placeholder,
-textarea::placeholder {
+textarea::placeholder,
+select::placeholder {
   color: var(--main-color-light);
 }
 input:hover::placeholder, input:focus::placeholder, input:focus-visible::placeholder,
 textarea:hover::placeholder,
 textarea:focus::placeholder,
-textarea:focus-visible::placeholder {
+textarea:focus-visible::placeholder,
+select:hover::placeholder,
+select:focus::placeholder,
+select:focus-visible::placeholder {
   color: var(--main-color);
 }
 
@@ -136,8 +141,8 @@ textarea:focus-visible::placeholder {
   font-family: var(--font-primary);
   line-height: 1.4;
   color: var(--main-white);
-  overflow: hidden;
   background: var(--main-color-bg);
+  overflow: hidden;
 }
 
 .mainContainer {
@@ -146,6 +151,7 @@ textarea:focus-visible::placeholder {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 .mainHeader {
@@ -157,6 +163,7 @@ textarea:focus-visible::placeholder {
   align-items: center;
   position: sticky;
   top: 0;
+  z-index: 2;
 }
 .mainHeader nav a {
   color: rgb(240, 240, 240);
@@ -182,16 +189,21 @@ textarea:focus-visible::placeholder {
   width: 100%;
   flex: 1;
   z-index: 1;
+  overflow: hidden;
 }
 .home .side-panel {
-  flex-basis: clamp(50px, 50px + 2vw, 10%);
+  flex-basis: clamp(80px, 80px + 2vw, 10%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   background: var(--main-color-side);
   transition: flex-basis 200ms;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* @media(max-width: 599px) {
+    display: none;
+  } */
 }
 .home .side-panel__opts {
   margin-block: 2rem;
@@ -203,6 +215,11 @@ textarea:focus-visible::placeholder {
 }
 .home .side-panel.expanded {
   flex-basis: clamp(300px, 300px + 2vw, 30%);
+}
+@media (max-width: 599px) {
+  .home .side-panel.expanded {
+    flex-basis: clamp(150px, 150px + 2vw, 30%);
+  }
 }
 .home .side-panel button.side-toggle,
 .home .side-panel a.side-toggle {
@@ -229,7 +246,7 @@ textarea:focus-visible::placeholder {
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .site-section {
@@ -240,6 +257,7 @@ textarea:focus-visible::placeholder {
   align-items: center;
   text-align: center;
   text-wrap: balance;
+  overflow-y: auto;
 }
 
 .users {
@@ -261,10 +279,10 @@ textarea:focus-visible::placeholder {
   background: var(--main-color-light);
 }
 .users__list > ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+  place-content: start;
+  place-items: center;
   gap: 0.5rem;
   flex: 1;
 }
@@ -301,7 +319,7 @@ textarea:focus-visible::placeholder {
   opacity: 0.5;
   backdrop-filter: blur(2px);
 }
-@media (max-width: 499px) {
+@media (max-width: 599px) {
   .mainModalWrapper {
     min-height: 80%;
   }
@@ -321,13 +339,16 @@ textarea:focus-visible::placeholder {
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   flex-direction: column;
   gap: 0.5rem;
+  width: clamp(200px, 200px + 2vw, 80%);
 }
 .mainModal__data > p {
   text-transform: uppercase;
   font-weight: bold;
+  width: 100%;
+  border-bottom: 1px solid var(--main-gray-op-dark);
 }
 .mainModal__data__inputs {
   flex: 1;
@@ -336,13 +357,23 @@ textarea:focus-visible::placeholder {
   align-items: center;
   flex-direction: column;
   gap: 0.5rem;
+  /* Firefox */
 }
 .mainModal__data__inputs input,
-.mainModal__data__inputs textarea {
+.mainModal__data__inputs textarea,
+.mainModal__data__inputs select {
   border: none;
   outline: none;
   min-width: 150px;
   width: 100%;
+}
+.mainModal__data__inputs input::-webkit-outer-spin-button,
+.mainModal__data__inputs input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.mainModal__data__inputs input[type=number] {
+  -moz-appearance: textfield;
 }
 .mainModal__send, .mainModal__close, .mainModal__edit {
   align-self: end;

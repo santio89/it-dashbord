@@ -11,8 +11,8 @@
   --main-black: rgb(30, 30, 30);
   --main-white: rgb(240, 240, 240);
   --main-gray: rgb(180, 180, 180);
-  --main-gray-op: rgba(180, 180, 180, .9);
-  --main-gray-op-dark: rgba(120, 120, 120, .2);
+  --main-gray-op: rgba(180, 180, 180, .8);
+  --main-gray-op-dark: rgba(120, 120, 120, .8);
   --main-color: rgb(228, 76, 76);
   --main-color-dark: var(--main-black);
   --main-color-light: var(--main-white);
@@ -96,7 +96,8 @@ textarea {
 }
 
 input,
-textarea {
+textarea,
+select {
   border: none;
   outline: none;
   background: none;
@@ -138,8 +139,8 @@ textarea {
   font-family: var(--font-primary);
   line-height: 1.4;
   color: var(--main-white);
-  overflow: hidden;
   background: var(--main-color-bg);
+  overflow: hidden;
 }
 
 .mainContainer {
@@ -148,6 +149,7 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 .mainHeader {
@@ -159,6 +161,7 @@ textarea {
   align-items: center;
   position: sticky;
   top: 0;
+  z-index: 2;
 
   nav {
     a {
@@ -191,16 +194,22 @@ textarea {
   width: 100%;
   flex: 1;
   z-index: 1;
+  overflow: hidden;
 
   .side-panel {
-    flex-basis: clamp(50px, 50px + 2vw, 10%);
+    flex-basis: clamp(80px, 80px + 2vw, 10%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     background: var(--main-color-side);
     transition: flex-basis 200ms;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    /* @media(max-width: 599px) {
+      display: none;
+    } */
 
     &__opts {
       margin-block: 2rem;
@@ -213,6 +222,10 @@ textarea {
 
     &.expanded {
       flex-basis: clamp(300px, 300px + 2vw, 30%);
+
+      @media(max-width: 599px) {
+        flex-basis: clamp(150px, 150px + 2vw, 30%);
+      }
     }
 
     button.side-toggle,
@@ -242,7 +255,7 @@ textarea {
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
-    overflow-y: auto;
+    overflow: hidden;
   }
 }
 
@@ -254,6 +267,7 @@ textarea {
   align-items: center;
   text-align: center;
   text-wrap: balance;
+  overflow-y: auto;
 }
 
 .users {
@@ -276,10 +290,10 @@ textarea {
     }
 
     >ul {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      display: grid;
+      /* grid-template-columns: 1fr 1fr; */
+      place-content: start;
+      place-items: center;
       gap: .5rem;
       flex: 1;
 
@@ -321,7 +335,7 @@ textarea {
     backdrop-filter: blur(2px);
   }
 
-  @media(max-width: 499px) {
+  @media(max-width: 599px) {
     min-height: 80%;
   }
 }
@@ -340,13 +354,16 @@ textarea {
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: center;
     flex-direction: column;
     gap: .5rem;
+    width: clamp(200px, 200px + 2vw, 80%);
 
-    >p{
+    >p {
       text-transform: uppercase;
       font-weight: bold;
+      width: 100%;
+      border-bottom: 1px solid var(--main-gray-op-dark);
     }
 
     &__inputs {
@@ -358,16 +375,30 @@ textarea {
       gap: .5rem;
 
       input,
-      textarea {
+      textarea,
+      select {
         border: none;
         outline: none;
         min-width: 150px;
         width: 100%;
       }
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      input[type=number] {
+        -moz-appearance: textfield;
+      }
     }
   }
 
-  &__send, &__close, &__edit {
+  &__send,
+  &__close,
+  &__edit {
     align-self: end;
   }
 }
