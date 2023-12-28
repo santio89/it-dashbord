@@ -13,7 +13,10 @@ export default function Modal() {
   const [newUserLocation, setNewUserLocation] = useState("")
   const [newUserComment, setNewUserComment] = useState("")
   const [newUserIntern, setNewUserIntern] = useState("")
-  const [newDeviceName, setNewDeviceName] = useState("")
+  const [newUserEmail, setNewUserEmail] = useState("")
+  const [newDeviceType, setNewDeviceType] = useState("")
+  const [newDeviceModel, setNewDeviceModel] = useState("")
+  const [newDeviceSn, setNewDeviceSn] = useState("")
   const [newDeviceArea, setNewDeviceArea] = useState("")
   const [newDeviceLocation, setNewDeviceLocation] = useState("")
   const [newDeviceComment, setNewDeviceComment] = useState("")
@@ -51,7 +54,10 @@ export default function Modal() {
       setNewUserArea("")
       setNewUserLocation("")
       setNewUserComment("")
-      setNewDeviceName("")
+      setNewUserEmail("")
+      setNewDeviceType("")
+      setNewDeviceModel("")
+      setNewDeviceSn("")
       setNewDeviceArea("")
       setNewDeviceLocation("")
       setNewDeviceComment("")
@@ -92,6 +98,7 @@ export default function Modal() {
             <form className='mainModal__data__inputs' onSubmit={() => dispatch(setModal({ active: false, data: {} }))}>
               <h2>ADD USER</h2>
               <input type="text" placeholder='User' value={newUserName} onChange={e => setNewUserName(e.target.value)} />
+              <input type="text" placeholder='E-Mail' value={newUserEmail} onChange={e => setNewUserEmail(e.target.value)} />
               <input type="text" placeholder='Area' value={newUserArea} onChange={e => setNewUserArea(e.target.value)} />
               <select onChange={e => setNewUserLocation(e.target.value)}>
                 <option value="Location" disabled selected>Location</option>
@@ -109,7 +116,9 @@ export default function Modal() {
           {modalData?.newDevice &&
             <form className='mainModal__data__inputs' onSubmit={() => dispatch(setModal({ active: false, data: {} }))}>
               <h2>ADD DEVICE</h2>
-              <input type="text" placeholder='Device' value={newDeviceName} onChange={e => setNewDeviceName(e.target.value)} />
+              <input type="text" placeholder='Type' value={newDeviceType} onChange={e => setNewDeviceType(e.target.value)} />
+              <input type="text" placeholder='Model' value={newDeviceModel} onChange={e => setNewDeviceModel(e.target.value)} />
+              <input type="text" placeholder='Serial' value={newDeviceSn} onChange={e => setNewDeviceSn(e.target.value)} />
               <input type="text" placeholder='Area' value={newDeviceArea} onChange={e => setNewDeviceArea(e.target.value)} />
               <select onChange={e => setNewDeviceLocation(e.target.value)}>
                 <option value="Location" disabled selected>Location</option>

@@ -2,6 +2,7 @@ const usersData = {
   users: [
     {
       name: "testUser",
+      email: 'test@test.test',
       intern: "123",
       area: 'it',
       location: 'ss',
@@ -9,6 +10,7 @@ const usersData = {
     },
     {
       name: "testUser",
+      email: 'test@test.test',
       intern: "123",
       area: 'it',
       location: 'ss',
@@ -16,6 +18,7 @@ const usersData = {
     },
     {
       name: "testUser",
+      email: 'test@test.test',
       intern: "123",
       area: 'it',
       location: 'ss',
@@ -23,6 +26,7 @@ const usersData = {
     },
     {
       name: "testUser",
+      email: 'test@test.test',
       intern: "123",
       area: 'it',
       location: 'ss',
@@ -30,12 +34,14 @@ const usersData = {
     },
     {
       name: "testUser",
+      email: 'test@test.test',
       intern: "123",
       location: 'ss',
       id: 5
     },
     {
       name: "testUser",
+      email: 'test@test.test',
       intern: "123",
       area: 'it',
       location: 'ss',
@@ -43,6 +49,7 @@ const usersData = {
     },
     {
       name: "testUser",
+      email: 'test@test.test',
       intern: "123",
       area: 'it',
       location: 'ss',
@@ -50,6 +57,7 @@ const usersData = {
     },
     {
       name: "testUser",
+      email: 'test@test.test',
       intern: "123",
       area: 'it',
       location: 'ss',

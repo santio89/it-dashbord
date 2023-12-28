@@ -13,7 +13,7 @@ export default function Users() {
         <ul>
           {
             devicesData.devices.map(device =>
-              <li key={device.id}><button onClick={() => { dispatch(setModal({ active: true, data: device })) }}>{device.name}</button></li>)
+              <li key={device.id}><button onClick={() => { dispatch(setModal({ active: true, data: device })) }}>{device.type} - {device.model}</button></li>)
           }
         </ul>
       </div>
