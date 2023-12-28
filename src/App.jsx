@@ -27,6 +27,7 @@ function App() {
               <Route path="/" element={<Home section={"main"} />} />
               <Route path="/users" element={<Home section={"users"} />} />
               <Route path="/devices" element={<Home section={"devices"} />} />
+              <Route path="/tdl" element={<Home section={"tdl"} />} />
               <Route path="/contact" element={<Home section={"contact"} />} />
               <Route path="/admin" element={<Home section={"admin"} />} />
             </Route>

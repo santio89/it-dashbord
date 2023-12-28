@@ -307,9 +307,9 @@ select:focus-visible::placeholder {
   aspect-ratio: 4/3;
   border: none;
   outline: none;
-  background-color: var(--main-color-bg);
   color: rgb(240, 240, 240);
   font-size: 1rem;
+  background-color: var(--main-color-bg);
   box-shadow: 0 0 2rem -1rem var(--main-color-dark);
   border: 4px solid var(--main-color);
   padding: clamp(0.5rem, 0.5rem + 2vw, 1rem);
@@ -317,7 +317,6 @@ select:focus-visible::placeholder {
 .mainModalWrapper::backdrop {
   background-color: dimgray;
   opacity: 0.5;
-  backdrop-filter: blur(2px);
 }
 @media (max-width: 599px) {
   .mainModalWrapper {
@@ -375,7 +374,15 @@ select:focus-visible::placeholder {
 .mainModal__data__inputs input[type=number] {
   -moz-appearance: textfield;
 }
-.mainModal__send, .mainModal__close, .mainModal__edit {
+.mainModal__btns {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.mainModal__delete {
+  background-color: var(--main-color-dark);
+}
+.mainModal__send, .mainModal__close {
   align-self: end;
 }
 

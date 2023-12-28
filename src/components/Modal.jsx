@@ -82,7 +82,10 @@ export default function Modal() {
                   return <p key={key}>{key}: {value}</p>
                 })
               }
-              <button className='mainModal__edit'>Edit</button>
+              <div className="mainModal__btns">
+                <button className='mainModal__delete'>Delete</button>
+                <button className='mainModal__edit'>Edit</button>
+              </div>
             </>}
 
           {modalData?.newUser &&

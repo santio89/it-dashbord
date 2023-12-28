@@ -5,6 +5,7 @@ import Devices from "./Devices";
 import Main from "./Main"
 import Contact from "./Contact";
 import Admin from "./Admin";
+import TDL from "./TDL"
 
 export default function Home({ section }) {
   const [sideExpanded, setSideExpanded] = useState(false)
@@ -18,6 +19,7 @@ export default function Home({ section }) {
           <Link to="/">Home</Link>
           <Link to="/users">Users</Link>
           <Link to="/devices">Devices</Link>
+          <Link to="/tdl">TDL</Link>
           <Link to="/contact">Contact</Link>
           <Link to="/admin">Admin</Link>
         </div>
@@ -28,6 +30,7 @@ export default function Home({ section }) {
         {section === "main" && <Main />}
         {section === "users" && <Users />}
         {section === "devices" && <Devices />}
+        {section === "tdl" && <TDL />}
         {section === "contact" && <Contact />}
         {section === "admin" && <Admin />}
       </main>
