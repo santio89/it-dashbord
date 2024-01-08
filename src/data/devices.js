@@ -6,6 +6,7 @@ const devicesData = {
       sn: 'asd125qwe',
       area: 'it',
       location: 'ss',
+      comment: 'testComment',
       id: 1
     },
     {
@@ -14,6 +15,7 @@ const devicesData = {
       sn: 'asd125qwe',
       area: 'it',
       location: 'ss',
+      comment: 'testComment',
       id: 2
     },
     {
@@ -22,6 +24,7 @@ const devicesData = {
       sn: 'asd125qwe',
       area: 'it',
       location: 'ss',
+      comment: 'testComment',
       id: 3
     },
     {
@@ -30,6 +33,7 @@ const devicesData = {
       sn: 'asd125qwe',
       area: 'it',
       location: 'ss',
+      comment: 'testComment',
       id: 4
     },
     {
@@ -37,6 +41,7 @@ const devicesData = {
       model: "testDevice",
       sn: 'asd125qwe',
       location: 'ss',
+      comment: 'testComment',
       id: 5
     },
     {
@@ -45,6 +50,7 @@ const devicesData = {
       sn: 'asd125qwe',
       area: 'it',
       location: 'ss',
+      comment: 'testComment',
       id: 6
     },
     {
@@ -53,6 +59,7 @@ const devicesData = {
       sn: 'asd125qwe',
       area: 'it',
       location: 'ss',
+      comment: 'testComment',
       id: 7
     },
     {
@@ -61,6 +68,7 @@ const devicesData = {
       sn: 'asd125qwe',
       area: 'it',
       location: 'ss',
+      comment: 'testComment',
       id: 8
     },
   ]
